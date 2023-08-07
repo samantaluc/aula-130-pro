@@ -3,6 +3,13 @@ import mediapipe as mp
 from pynput.keyboard import Key, Controller
 import pyautogui
 
+#NO CMD USE PARA INSTALAR OU ATÉ MESMO VERIFICAR SE HÁ ATUALIZAÇÃO NAS BIBLIOTECAS
+####pip install opencv-python
+####pip install mediapipe
+####pip install pynput
+####pip install pyautogui
+
+
 # Inicialização das bibliotecas
 keyboard = Controller()
 cap = cv2.VideoCapture(0)
