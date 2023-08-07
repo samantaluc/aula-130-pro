@@ -8,12 +8,14 @@ keyboard = Controller()
 cap = cv2.VideoCapture(0)
 
 # Configuração da janela de exibição
-cv2.namedWindow("Controlador de Midia", cv2.WINDOW_NORMAL)
-cv2.resizeWindow("Controlador de Midia", 800, 600)
+################# ADICIONE OS TRECHOS DE CÓDIGO AQUI
+
+#################
 
 # Tamanhos da janela
-largura = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-altura = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+################# ADICIONE OS TRECHOS DE CÓDIGO AQUI
+
+#################
 
 # Inicialização do Mediapipe para detecção de mãos
 mp_hands = mp.solutions.hands
@@ -23,6 +25,7 @@ hands = mp_hands.Hands(min_detection_confidence=0.8, min_tracking_confidence=0.5
 tipIds = [4, 8, 12, 16, 20]
 estado = None
 
+###ATENÇÃO:  ELE IRÁ CONTAR OS DEDOS COM EXCESSÃO DO POLEGAR
 def contarDedos(imagem, landmarks_mao, mao_numero=0):
     global estado
     if landmarks_mao:
@@ -40,13 +43,15 @@ def contarDedos(imagem, landmarks_mao, mao_numero=0):
                     dedos.append(0)
 
         totalDedos = dedos.count(1)
-        
-        if totalDedos == 4:
-            estado = "Reproduzir"
 
-        if totalDedos == 0 and estado == "Reproduzir":
-            estado = "Pausar"
-            keyboard.press(Key.space)
+        # SE TENHO 4 DEDOS LEVANTADOS, MEU ESTADO É DE REPRODUÇÃO DO VÍDEO
+        ################# ADICIONE OS TRECHOS DE CÓDIGO AQUI
+
+        #################
+        # SE ABAIXO TODOS MEUS DEDOS E MEU ESTADO ESTAVA EM REPRODUZIR, EU VOU PAUSAR E IDENTIFICAR COMO USA DA BARRA DE ESPAÇO
+        ################# ADICIONE OS TRECHOS DE CÓDIGO AQUI
+
+        #################
 
         x_ponta_dedo = landmarks[8].x * largura
         if totalDedos == 1:
